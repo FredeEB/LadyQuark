@@ -20,7 +20,7 @@ class mohrSquare {
     let mod = []
     //outer for loop defines the number of inner squares
     for (var i = 0; i < this.sub*4; i++) {
-      mod[i] = random(10)
+      mod[i] = random(8)
     }
     //inner for loop defines the coordinates of each point on the perimeter of each square and their inner squares
     for(let k = 0; k < this.sub; k++){

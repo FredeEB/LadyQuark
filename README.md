@@ -1,12 +1,8 @@
 # LadyQuark
 Manfred Mohr's Lady Quark project
 
-I've recently stumbled upon
+I've recently stumbled upon a wonderful piece by Manfred Mohr, and I've decided to reconstruct it in a slightly more random and progressive form
 
-##LADY QUARK
-
-A wonderful piece by Manfred Mohr, and i've decided to reconstruct it in a slightly more random form
+Made with p5js.org
 
 [WIP]
-
-

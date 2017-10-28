@@ -30,25 +30,25 @@ class mohrSquare {
 
       //makes the top side
       for (let i = 0; i <= this.def; i++) {
-        this.coords[k][j] = new p5.Vector(this.x + this.modfactor * k + i * (this.scl - this.modfactor * k * 2) / this.def, this.y + k * mod[j]);
+        this.coords[k][j] = new p5.Vector(this.x + mod[i] * k + i * (this.scl - mod[i] * k * 2) / this.def, this.y + k * mod[j]);
         j++;
       }
 
       //makes the right side
       for (let i = 0; i <= this.def; i++) {
-        this.coords[k][j] = new p5.Vector(this.x - k * mod[j] + this.scl, this.y + this.modfactor * k + i * (this.scl - this.modfactor * k * 2) / this.def);
+        this.coords[k][j] = new p5.Vector(this.x - k * mod[j] + this.scl, this.y + mod[i] * k + i * (this.scl - mod[i] * k * 2) / this.def);
         j++;
       }
 
       //makes the bottom
       for (let i = this.def; i >= 0; i--) {
-        this.coords[k][j] = new p5.Vector(this.x + this.modfactor * k + i * (this.scl - this.modfactor * k * 2) / this.def, this.y - k * mod[j] + this.scl);
+        this.coords[k][j] = new p5.Vector(this.x + mod[i] * k + i * (this.scl - mod[i] * k * 2) / this.def, this.y - k * mod[j] + this.scl);
         j++;
       }
 
       //makes the left side
       for (let i = this.def; i >= 0; i--) {
-        this.coords[k][j] = new p5.Vector(this.x + k * mod[j], this.y + this.modfactor * k + i * (this.scl - this.modfactor * k * 2) / this.def);
+        this.coords[k][j] = new p5.Vector(this.x + k * mod[j], this.y + mod[i] * k + i * (this.scl - mod[i] * k * 2) / this.def);
         j++;
       }
     }

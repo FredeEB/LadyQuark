@@ -3,3 +3,7 @@ body{
   font-family: monospace;
   text-align: center;
 }
+
+#squares{
+  align-self: center;
+}

@@ -1,6 +1,6 @@
 class mohrSquare {
 
-  constructor(x, y, def, scl) {
+  constructor(x, y, def, scl, sub) {
     this.x = x;
     this.y = y;
     //side subdevision
@@ -11,7 +11,8 @@ class mohrSquare {
     this.made = false;
     //for calculating the inner squares
     this.coords = [];
-    this.sub = 10;
+    this.sub = sub;
+    this.modfactor = 3;
   }
 
   //makes the coordinates of the mohr square
@@ -20,7 +21,7 @@ class mohrSquare {
     let mod = []
     //outer for loop defines the number of inner squares
     for (var i = 0; i < this.sub*4; i++) {
-      mod[i] = random(8)
+      mod[i] = random(this.modfactor)
     }
     //inner for loop defines the coordinates of each point on the perimeter of each square and their inner squares
     for(let k = 0; k < this.sub; k++){
@@ -29,25 +30,25 @@ class mohrSquare {
 
     //makes the top side
     for (let i = 0; i <= this.def; i++) {
-      this.coords[k][j] = new p5.Vector(this.x + i * this.scl / this.def, this.y + k*mod[j]);
+      this.coords[k][j] = new p5.Vector(this.x + this.modfactor*k + i * (this.scl - this.modfactor*k*2) / this.def, this.y + k*mod[j]);
       j++;
     }
 
     //makes the right side
     for (let i = 0; i <= this.def; i++) {
-      this.coords[k][j] = new p5.Vector(this.x - k*mod[j] + this.scl, this.y +i * this.scl / this.def);
+      this.coords[k][j] = new p5.Vector(this.x - k*mod[j] + this.scl, this.y + this.modfactor*k +i * (this.scl- this.modfactor*k*2) / this.def);
       j++;
     }
 
     //makes the bottom
     for (let i = this.def; i >= 0; i--) {
-      this.coords[k][j] = new p5.Vector(this.x + i * this.scl / this.def, this.y - k*mod[j] + this.scl);
+      this.coords[k][j] = new p5.Vector(this.x  + this.modfactor*k+ i * (this.scl - this.modfactor*k*2) / this.def, this.y - k*mod[j] + this.scl);
       j++;
     }
 
     //makes the left side
     for (let i = this.def; i >= 0; i--) {
-      this.coords[k][j] = new p5.Vector(this.x + k*mod[j], this.y + i * this.scl / this.def);
+      this.coords[k][j] = new p5.Vector(this.x + k*mod[j], this.y +  this.modfactor*k + i * (this.scl- this.modfactor*k*2) / this.def);
       j++;
     }
   }

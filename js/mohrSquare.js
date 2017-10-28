@@ -3,16 +3,20 @@ class mohrSquare {
   constructor(x, y, def, scl, sub) {
     this.x = x;
     this.y = y;
+
     //side subdevision
     this.def = def;
+
     //side length
     this.scl = scl;
+
     //has make() been run
     this.made = false;
+
     //for calculating the inner squares
     this.coords = [];
     this.sub = sub;
-    this.modfactor = 3;
+    this.modfactor = 2;
   }
 
   //makes the coordinates of the mohr square
@@ -21,7 +25,7 @@ class mohrSquare {
     let mod = []
     //outer for loop defines the number of inner squares
     for (var i = 0; i < this.sub * 4; i++) {
-      mod[i] = random(this.modfactor)
+      mod[i] = this.scl / 100 + random(this.modfactor);
     }
     //inner for loop defines the coordinates of each point on the perimeter of each square and their inner squares
     for (let k = 0; k < this.sub; k++) {
@@ -35,19 +39,19 @@ class mohrSquare {
       }
 
       //makes the right side
-      for (let i = 0; i <= this.def; i++) {
+      for (let i = 1; i <= this.def; i++) {
         this.coords[k][j] = new p5.Vector(this.x - k * mod[j] + this.scl, this.y + mod[i] * k + i * (this.scl - mod[i] * k * 2) / this.def);
         j++;
       }
 
       //makes the bottom
-      for (let i = this.def; i >= 0; i--) {
+      for (let i = this.def-1; i >= 0; i--) {
         this.coords[k][j] = new p5.Vector(this.x + mod[i] * k + i * (this.scl - mod[i] * k * 2) / this.def, this.y - k * mod[j] + this.scl);
         j++;
       }
 
       //makes the left side
-      for (let i = this.def; i >= 0; i--) {
+      for (let i = this.def-1; i >= 1; i--) {
         this.coords[k][j] = new p5.Vector(this.x + k * mod[j], this.y + mod[i] * k + i * (this.scl - mod[i] * k * 2) / this.def);
         j++;
       }
@@ -69,7 +73,13 @@ class mohrSquare {
       for (let i = 0; i < this.coords[0].length; i++) {
         vertex(this.coords[j][i].x, this.coords[j][i].y);
       }
+      if (j == this.coords.length-1){
+        fill(0)
+      }
       endShape(CLOSE);
     }
+  }
+  update(){
+    this.display()
   }
 }

@@ -16,7 +16,7 @@ class mohrSquare {
     //for calculating the inner squares
     this.coords = [];
     this.sub = sub;
-    this.modfactor = 2;
+    this.modfactor = 3.5;
   }
 
   //makes the coordinates of the mohr square
@@ -25,7 +25,7 @@ class mohrSquare {
     let mod = []
     //outer for loop defines the number of inner squares
     for (var i = 0; i < this.sub * 4; i++) {
-      mod[i] = this.scl / 100 + random(this.modfactor);
+      mod[i] = 1.5 + random(this.modfactor);
     }
     //inner for loop defines the coordinates of each point on the perimeter of each square and their inner squares
     for (let k = 0; k < this.sub; k++) {

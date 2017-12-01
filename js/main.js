@@ -10,7 +10,7 @@ function setup() {
   for (var i = 0; i < 3; i++) {
     mohr[i] = [];
     for (var j = 0; j < 3; j++) {
-      mohr[i][j] = new mohrSquare (i * 310, j* 310, 4, 300, 20);
+      mohr[i][j] = new mohrSquare (i * 310, j* 310, 300);
     }
   }
   for (var i = 0; i < mohr[0].length; i++) {

@@ -1,14 +1,14 @@
 class mohrSquare {
 
-  constructor(x, y, def, scl, sub) {
+  constructor(x, y, scl, def = 4, sub = 20) {
     this.x = x;
     this.y = y;
 
-    //side subdevision
-    this.def = def;
-
     //side length
     this.scl = scl;
+
+    //side subdevision
+    this.def = def;
 
     //has make() been run
     this.made = false;

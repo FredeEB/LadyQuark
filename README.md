@@ -5,4 +5,4 @@ I've recently stumbled upon a wonderful piece by Manfred Mohr, and I've decided 
 
 Made with p5js.org
 
-[WIP]
+The proejct can be found hosted on [Emilmakes.com](https://emilmakes.com)
